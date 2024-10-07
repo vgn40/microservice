@@ -1,5 +1,5 @@
 # Account Service
-Denne microservice håndterer brugerkonti, herunder registrering, autentificering og profiladministration.
+Denne microservice håndterer brugerkonti, herunder registrering, autentificering og profiladministration.    
 Den behandler login, logout, passwordhåndtering og brugerroller.
 
 
