@@ -1,13 +1,13 @@
 # Account Service
-    Denne microservice håndterer brugerkonti, herunder registrering, autentificering og profiladministration.
-    Den behandler login, logout, passwordhåndtering og brugerroller.
+Denne microservice håndterer brugerkonti, herunder registrering, autentificering og profiladministration.
+Den behandler login, logout, passwordhåndtering og brugerroller.
 
 
 ## Installation
 
 1. Clone dette repository:
 
-```bash
+```
    git clone https://github.com/ITAKEA/account_service.git
 
    cd account_service
