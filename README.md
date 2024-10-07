@@ -13,6 +13,9 @@ Den behandler login, logout, passwordhåndtering og brugerroller.
    docker build -t account_service .
    docker run -it --rm -p 5000:5000 -v ${PWD}:/home/data account_service
 ```
+
+Eller:    
+
 2. pull docker image fra DockerHub
 
 ```
