@@ -9,17 +9,14 @@ Den behandler login, logout, passwordhåndtering og brugerroller.
 
 ```
    git clone https://github.com/ITAKEA/account_service.git
-
    cd account_service
-
    docker build -t account_service .
-
-   docker run -it --rm -p 5000:5000 account_service
+   docker run -it --rm -p 5000:5000 -v ${PWD}:/home/data account_service
 ```
 2. pull docker image fra DockerHub
 
 ```
-    docker run -it --rm -p 5000:5000 -v ${PWD}:/home/data clbo/account_service:latest
+    docker run -it --rm -p 5000:5000 -v ${PWD}:/home/data clbo/account_service:0.0.1
 
 ```
 
