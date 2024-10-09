@@ -4,7 +4,7 @@
     Behandler login, logout, passwordhåndtering og brugerroller.
 """
 
-from flask import Flask, jsonify, request, make_response
+from Flask import Flask, jsonify, request, make_response
 import requests
 
 app = Flask(__name__)
