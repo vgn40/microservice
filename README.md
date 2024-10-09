@@ -1,6 +1,6 @@
-# Account Service
-Denne microservice håndterer brugerkonti, herunder registrering, autentificering og profiladministration.    
-Den behandler login, logout, passwordhåndtering og brugerroller.
+Products Service
+Denne microservice håndterer produkter, herunder opbevaring og forespørgsler af produktinformation fra en SQLite database. Produkterne inkluderer data såsom titel, beskrivelse, kategori, pris, lagerbeholdning, brand, SKU, vægt, og billed-URLs.
+
 
 
 ## Installation
@@ -8,10 +8,11 @@ Den behandler login, logout, passwordhåndtering og brugerroller.
 1. Clone dette repository:
 
 ```
-   git clone https://github.com/ITAKEA/account_service.git
-   cd account_service
-   docker build -t account_service .
-   docker run -it --rm -p 5000:5000 -v ${PWD}:/home/data account_service
+git clone https://github.com/ITAKEA/products_service.git
+cd products_service
+docker build -t products_service .
+docker run -it --rm -p 5000:5000 -v ${PWD}:/home/data products_service
+
 ```
 
 Eller:    
@@ -19,85 +20,34 @@ Eller:
 2. pull docker image fra DockerHub
 
 ```
-    docker run -it --rm -p 5000:5000 -v ${PWD}:/home/data clbo/account_service:0.0.1
+    docker run -it --rm -p 5000:5000 -v ${PWD}:/home/data clbo/products_service:0.0.1
 
 ```
 
 ## API Endpoints
 
-### Registrer en ny Bruger
+### Get all products
 
-- **URL:** `/profile`
-- **Method:** `POST`
-- **Request Body:** JSON
-
-  ```json
-  {
-      "username": "username",
-      "password": "password"
-  }
-  ```
-
-- **Response:**
-
-  - **201 Created:** User registered successfully
-  - **400 Bad Request:** Username and password are required or User already exists
-
-### View Profile
-
-- **URL:** `/profile`
+- **URL:** `/product`
 - **Method:** `GET`
-- **Headers:** 
-
-  `Authorization: username`
-
-- **Response:**
-
-  - **200 OK:** Returns user profile data
-  - **401 Unauthorized:** User not logged in
-  - **404 Not Found:** User not found
-
-### Edit Profile
-
-- **URL:** `/profile`
-- **Method:** `PUT`
-- **Response:** `201 Created`
-
-*(Bemærk: Dette endpoint opdaterer i øjeblikket ikke nogen data og returnerer et pladsholderrespons.)*
-
-### Login
-
-- **URL:** `/login`
-- **Method:** `POST`
-- **Request Body:** JSON
 
   ```json
   {
-      "username": "username",
-      "password": "password"
+    [
+    {
+        "id": 1,
+        "title": "Product Title",
+        "description": "Product Description",
+        "category": "Category",
+        "price": 100.0,
+        "stock": 50,
+        "brand": "Brand Name",
+        "sku": "SKU123",
+        "weight": 1.5,
+        "image_url": "https://example.com/image.jpg",
+        "thumbnail_url": "https://example.com/thumbnail.jpg"
+    }
+]
+
   }
-  ```
-
-- **Response:**
-
-  - **200 OK:** Login successful. Sets `Authorization` header in the response.
-  - **401 Unauthorized:** Invalid username or password
-
-### Logout
-
-- **URL:** `/logout`
-- **Method:** `POST`
-- **Response:** `201 Created`
-
-*(Bemærk: Dette endpoint returnerer i øjeblikket et pladsholderrespons og er ikke fuldt implementeret.)*
-
-## Notes
-
-Appen bruger i øjeblikket en liste i hukommelsen til at gemme brugerdata, hvilket bør ændres til en database som SQLite til produktionsbrug.
-
-username bruges som autorisationstoken i headers, men denne metode er ikke sikker og bør erstattes med standard autentifikationspraksis som JWT i en reel applikation.
-
-## License
-
-MIT License
-   # microservice
+```
