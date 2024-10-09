@@ -52,6 +52,30 @@ Eller:
 
   }
 ```
+### Get product by id
+
+- **URL:** `/product/<int:id>`
+- **Method:** `GET`
+
+```
+[
+    {
+        "id": 2,
+        "title": "Product Title",
+        "description": "Product Description",
+        "category": "Category",
+        "price": 50.0,
+        "stock": 20,
+        "brand": "Brand Name",
+        "sku": "SKU456",
+        "weight": 1.2,
+        "image_url": "https://example.com/image2.jpg",
+        "thumbnail_url": "https://example.com/thumbnail2.jpg"
+    }
+]
+```
+
+
 ### Get product by Category (Virker ikke i nu)
 
 - **URL:** `/product/category/<string:category>`
